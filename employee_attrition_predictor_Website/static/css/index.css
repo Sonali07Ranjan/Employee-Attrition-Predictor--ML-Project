@@ -1,0 +1,59 @@
+  h4 {
+    margin-top: 5%;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(19, 36, 50);
+    }
+  #disclaim{
+    text-align: center;
+    font-weight: lighter;
+    font-family: 'Segoe UI';
+    font-size: small;
+    font-style: italic;
+    color: rgb(93, 84, 84);
+  }
+  body{
+    overflow: hidden;
+  }
+  .container{
+    /* display: flex;
+    align-items: center; */
+    margin-top: 35px;
+  }
+  #part{
+    opacity: 0.9;
+    border-radius: 10px;
+    background-color: rgb(242, 242, 255);
+  }
+  .form-label{
+    color: rgb(19, 36, 50);
+    font-weight: bold;
+  }
+  .col-md-3{
+    text-align: center;
+  }
+  button:hover{
+    transition: .5s ease-in-out;
+    border-style: outset;
+    background-color: rgb(168, 182, 247);;
+    border-color: rgb(246, 246, 246);
+    color: rgb(246, 246, 246);
+    font-weight: bold;
+  }
+  button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: 1px;
+    outline-style:solid ;
+    outline-color:rgb(156, 184, 206) ;
+  }
+  .btn{
+    /* background-color: rgb(168, 182, 247); */
+    background-color:rgb(19, 36, 50);
+    color: aliceblue;
+  }
+ 
+
+
+
+

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  
+  <title>Employee Attrition Predictor</title>
+  <link rel="icon" type="image/x-icon" href="../static/imgs/Econ.jfif">
+
+  <!-- Bootstrap core CSS -->
+  <!-- <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/css/result.css" rel="stylesheet">
+
+  
+  <!-- Custom styles for this template -->
+  <!-- <link href="form-validation.css" rel="stylesheet"> -->
+</head>
+<body  background="../static/imgs/bg5.png">
+  <div class="container">  
+    <main>
+      <div class="d-flex align-items-center justify-content-center" id="part">
+        <div class="row g-5">
+          <div class="col-md-12">
+            <div>
+              <h4>Attrition Possibility: {{prediction}}</h4>
+              <audio autoplay
+                src="../static/audio/{{prediction}}_audio.wav"
+                id="playBgm"
+                preload="auto">     
+              </audio>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 mt-2">Department</div>
+                <div class="col-md-5 mt-2">{{department}}</div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 mt-2">Business Travel</div>
+                <div class="col-md-5 mt-2">{{business_travel}}</div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 mt-2">Education Field</div>
+                <div class="col-md-5 mt-2">{{education_field}}</div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 mt-2">Job Role</div>
+                <div class="col-md-5 mt-2">{{job_role}}</div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 mt-2">Marital Status</div>
+                <div class="col-md-5 mt-2">{{marital_status}}</div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 mt-2">Monthly Income (Rs)</div>
+                <div class="col-md-5 mt-2">{{monthly_income}}</div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 mt-2">Age</div>
+                <div class="col-md-5 mt-2">{{age}}</div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 mt-2">Total Working Years</div>
+                <div class="col-md-5 mt-2">{{tot_wrk_yrs}}</div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-7 mt-2">Years At Company</div>
+                <div class="col-md-5 mt-2">{{yrs_at_compny}}</div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mt-4" style="text-align: center;">
+                    <a href="{{url_for('home')}}">
+                        <button id="back" class="btn" >Back</button>
+                    </a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-muted text-center text-small">
+    <!-- <footer class="my-5 pt-5 text-muted text-center text-small"> -->
+      <p style="color:rgb(168, 182, 247)">&copy; Team HR</p>
+    </footer>
+  </div>
+
+
+  <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
+  <script src="../static/js/bootstrap.bundle.min.js"></script>
+
+  <!-- <script src="form-validation.js"></script> -->
+  <script src="../static/js/form-validation.js"></script>
+ 
+
+</body>
+
+</html>

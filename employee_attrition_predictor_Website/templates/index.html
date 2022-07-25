@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  
+  <title>Employee Attrition Predictor</title>
+  <link rel="icon" type="image/x-icon" href="../static/imgs/Econ.jfif">
+
+  <!-- Bootstrap core CSS -->
+  <!-- <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../static/css/index.css" rel="stylesheet">
+
+  
+  <!-- Custom styles for this template -->
+  <!-- <link href="form-validation.css" rel="stylesheet"> -->
+  <link href="../static/css/form-validation.css" rel="stylesheet">
+  <script src="../static/js/slideranger.js"></script>
+  <link href="../static/css/slide.css" rel="stylesheet">
+</head>
+
+<body  background="../static/imgs/bg5.png">
+  <div class="container">  
+    <main>
+      <div class="d-flex align-items-center justify-content-center" id="part">
+        <div class="row g-5">
+          <div class="col-md-12 col-lg-12">
+            <div>
+              <h4>Employee Attrition Predictor</h4>
+            </div>
+            <br>
+            <!-- FORM ACTION WHEN SUBMITTED -->
+            <form class="needs-validation" action="{{url_for('predict_model')}}" method="post" novalidate>
+            <!-- <form class="needs-validation" method="post" novalidate> -->
+
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label for="Department" class="form-label">Department</label>
+                  <select class="form-select" name="Department" id="Department" required>
+                    <option value="" disabled selected hidden>------ Select ------</option>
+                    <option value="Sales">Sales</option>
+                    <option value="Research & Development">Research & Development</option>
+                    <option value="Human Resources">Human Resources</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="BusinessTravel" class="form-label">Business Travel</label>
+                  <select class="form-select" name="BusinessTravel" id="BusinessTravel" required>
+                    <option value="" disabled selected hidden>------ Select ------</option>                  
+                    <option value="Travel_Rarely">Travel Rarely</option>
+                    <option value="Travel_Frequently">Travel Frequently</option>
+                    <option value="Non-Travel">Non Travel</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="EducationField" class="form-label">Education Field</label>
+                  <select class="form-select" name="EducationField" id="EducationField" required>
+                    <option value="" disabled selected hidden>------ Select ------</option>
+                    <option value="Life Sciences">Life Sciences</option>
+                    <option value="Medical">Medical</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Technical Degree">Technical Degree</option>
+                    <option value="Human Resources">Human Resources</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="JobRole" class="form-label">Job Role</label>
+                  <select class="form-select" name="JobRole" id="JobRole" required>
+                    <option value="" disabled selected hidden>------ Select ------</option>
+                    <option value="Healthcare Representative">Healthcare Representative</option>
+                    <option value="Research Scientist">Research Scientist</option>
+                    <option value="Sales Executive">Sales Executive</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Research Director">Research Director</option>
+                    <option value="Laboratory Technician">Laboratory Technician</option>
+                    <option value="Manufacturing Director">Manufacturing Director</option>
+                    <option value="Sales Representative">Sales Representative</option>
+                    <option value="Manager">Manager</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="row g-3 justify-content-around">
+                <div class="col-md-3 mt-5" >
+                  <label for="MaritalStatus" class="form-label">Marital Status</label>
+                  <select class="form-select" name="MaritalStatus" id="MaritalStatus" required>
+                    <option value="" disabled selected hidden>------ Select ------</option>
+                    <option value="Married">Married</option>
+                    <option value="Single">Single</option>
+                    <option value="Divorced">Divorced</option>
+                  </select>              
+                </div>
+
+                <div class="col-md-3 mt-5" >
+                  <label for="MonthlyIncome" class="form-label">Monthly Income (Rs)</label>
+                  <input type="text" class="form-control" placeholder="Enter within range:10k-2L" name="MonthlyIncome" id="MonthlyIncome" required />              
+                </div>
+
+                <div class="col-md-5 mt-5" style="text-align: center;">
+                  <label  for="Age" class="form-label">Age</label>
+                  <div id="sliderContainer">
+                    <div class="tick-slider">
+                        <div class="tick-slider-value-container">
+                            <div id="ageLabelMin" class="tick-slider-label">18</div>
+                            <div id="ageLabelMax" class="tick-slider-label">60</div>
+                            <div id="ageValue" class="tick-slider-value"></div>
+                        </div>
+                        <div class="tick-slider-background"></div>
+                        <!-- grey slider inactive region -->
+                        <div id="ageProgress" class="tick-slider-progress"></div>
+                        <!-- color in passed region o/w it'll be grey -->
+                        <div id="ageTicks" class="tick-slider-tick-container"></div>
+                        <!-- small ticks in the slider line for each step -->
+                        <input name="Age" required
+                            id="ageSlider"
+                            class="tick-slider-input"
+                            type="range"
+                            min="18"
+                            max="60"
+                            step="1"
+                            value="36"
+                            data-tick-step="1"
+                            data-tick-id="ageTicks"
+                            data-value-id="ageValue"
+                            data-progress-id="ageProgress"
+                            data-handle-size="18"
+                            data-min-label-id="ageLabelMin"
+                            data-max-label-id="ageLabelMax"
+                        />
+                    </div>
+                  </div>              
+                </div>                
+              </div>
+
+
+              <div class="row g-3 justify-content-around">
+                <div class="col-md-4 mt-5" style="text-align: center;">
+                  <label  for="TotalWorkingYears" class="form-label">Total Working Years</label>
+                  <div id="sliderContainer">
+                    <div class="tick-slider">
+                        <div class="tick-slider-value-container">
+                            <div id="twyLabelMin" class="tick-slider-label">0</div>
+                            <div id="twyLabelMax" class="tick-slider-label">40</div>
+                            <div id="twyValue" class="tick-slider-value"></div>
+                        </div>
+                        <div class="tick-slider-background"></div>
+                        <!-- grey slider inactive region -->
+                        <div id="twyProgress" class="tick-slider-progress"></div>
+                        <!-- color in passed region o/w it'll be grey -->
+                        <div id="twyTicks" class="tick-slider-tick-container"></div>
+                        <!-- small ticks in the slider line for each step -->
+                        <input name="TotalWorkingYears" required
+                            id="twySlider"
+                            class="tick-slider-input"
+                            type="range"
+                            min="0"
+                            max="40"
+                            step="1"
+                            value="10"
+                            data-tick-step="1"
+                            data-tick-id="twyTicks"
+                            data-value-id="twyValue"
+                            data-progress-id="twyProgress"
+                            data-handle-size="18"
+                            data-min-label-id="twyLabelMin"
+                            data-max-label-id="twyLabelMax"
+                        />
+                    </div>
+                  </div>              
+                </div>
+
+                <div class="col-md-4 mt-5" style="text-align: center;">
+                  <label  for="YearsAtCompany" class="form-label">Years At Company</label>
+                  <div id="sliderContainer">
+                    <div class="tick-slider">
+                        <div class="tick-slider-value-container">
+                            <div id="yacLabelMin" class="tick-slider-label">0</div>
+                            <div id="yacLabelMax" class="tick-slider-label">40</div>
+                            <div id="yacValue" class="tick-slider-value"></div>
+                        </div>
+                        <div class="tick-slider-background"></div>
+                        <!-- grey slider inactive region -->
+                        <div id="yacProgress" class="tick-slider-progress"></div>
+                        <!-- color in passed region o/w it'll be grey -->
+                        <div id="yacTicks" class="tick-slider-tick-container"></div>
+                        <!-- small ticks in the slider line for each step -->
+                        <input name="YearsAtCompany" required
+                            id="yacSlider"
+                            class="tick-slider-input"
+                            type="range"
+                            min="0"
+                            max="40"
+                            step="1"
+                            value="6"
+                            data-tick-step="1"
+                            data-tick-id="yacTicks"
+                            data-value-id="yacValue"
+                            data-progress-id="yacProgress"
+                            data-handle-size="18"
+                            data-min-label-id="yacLabelMin"
+                            data-max-label-id="yacLabelMax"
+                        />
+                    </div>
+                  </div>              
+                </div>                
+              </div>
+
+              <div class="row g-3">
+                <div class="col-md-12">
+                  <div  class="text-center">
+                    <br>                  
+                    <!-- <a href=# id=test><button style="margin-right: 20px ;" id="submit" type="submit" class="btn">Submit</button></a> -->
+                    <button style="margin-right: 20px ;" id="submit" type="submit" class="btn" >Submit</button>
+                    <button id="reset" onClick="window.location.reload();" type="reset" class="btn">Reset</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div>
+              <p id="disclaim">** Disclaimer: This attrition predictor validity is only for 2022 Q2</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-muted text-center text-small">
+      <p style="color:rgb(168, 182, 247)">&copy; Team HR</p>
+    </footer>
+  </div>
+
+
+  <!-- <script src="../assets/dist/js/bootstrap.bundle.min.js"></script> -->
+  <script src="../static/js/bootstrap.bundle.min.js"></script>
+
+  <!-- <script src="form-validation.js"></script> -->
+  <script src="../static/js/form-validation.js"></script>
+ 
+</body>
+
+</html>

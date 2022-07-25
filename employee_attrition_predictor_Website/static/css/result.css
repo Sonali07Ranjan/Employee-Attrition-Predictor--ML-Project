@@ -1,0 +1,52 @@
+h4 {
+    margin-top: 5%;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: rgb(19, 36, 50);
+    }
+
+  body{
+    overflow: hidden;
+  }
+  .container{
+    display: block;
+    /* align-items: center; */
+    margin-right: 26%;
+    margin-top: 35px;
+    width: 45%;
+  }
+  #part{
+    opacity: 0.9;
+    border-radius: 10px;
+    background-color: rgb(242, 242, 255);
+  }
+  .form-label{
+    /* color: aliceblue; */
+    color: rgb(19, 36, 50);
+    font-weight: bold;
+  }
+  button:hover{
+    transition: .5s ease-in-out;
+    border-style: outset;
+    background-color: rgb(168, 182, 247);;
+    border-color: rgb(246, 246, 246);
+    color: rgb(246, 246, 246);
+    font-weight: bold;
+  }
+  button{
+    margin-bottom: 20px;
+    outline: 1px;
+    outline-style:solid ;
+    outline-color:rgb(156, 184, 206) ;
+  }
+  .btn{
+    /* background-color: rgb(168, 182, 247); */
+    background-color:rgb(19, 36, 50);
+    color: aliceblue;
+  }
+ 
+
+
+
+
